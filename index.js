@@ -28,7 +28,7 @@ function checkWeather(){
         image.src = './weather/64x64/day/119.png'
        }else
         if (forecast.includes('Clear')) {
-        image.src = './weather/64x64/day/113.png' 
+        image.src = '/weather/64x64/day/113.png' 
        }else
         if (forecast.includes('rain')) {
         image.src = './weather/64x64/day/263.png'
