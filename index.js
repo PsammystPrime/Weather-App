@@ -2,6 +2,10 @@ const input = document.querySelector('input');
 const submit = document.getElementById('submit');
 const statusPara = document.getElementById('status');
 const resultPara = document.getElementById('result');
+const time = document.getElementById('time');
+const city = document.getElementById('city');
+const region = document.getElementById('region');
+const country = document.getElementById('country');
 
 submit.addEventListener('click', checkWeather);
 function checkWeather(){
@@ -12,10 +16,15 @@ function checkWeather(){
         return response.json()
     })
     .then(function(response){
-        statusPara.textContent = `Weather for ${input.value} updated!`;
-        resultPara.textContent = `${input.value} : ` + ' ' + response.current.condition.text;
+       console.log(response)        
+        statusPara.textContent = 'Weather updated!';
+        resultPara.textContent = 'Forecast :' + ' ' +  response.current.condition.text;
+       time.textContent = 'Local time :' + ' ' +  response.location.localtime
+       region.textContent = 'Region :' + ' ' +   response.location.tz_id
+       country.textContent = 'Country :' + ' ' +  response.location.country
     })
-    .catch(function(){
+    .catch(function(err){
+        console.log(err)
         statusPara.textContent = `Failed to update the weather for ${input.value}`;
     });
 };
