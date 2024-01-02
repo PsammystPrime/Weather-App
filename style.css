@@ -4,3 +4,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+date{
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+
+}
