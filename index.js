@@ -21,14 +21,14 @@ function checkWeather(){
         statusPara.textContent = 'Weather updated!';
         let forecast = response.current.condition.text;
         resultPara.textContent = 'Forecast :' + ' ' +  forecast;
-       time.textContent = 'Local time :' + ' ' +  response.location.localtime
-       region.textContent = 'Region :' + ' ' +   response.location.tz_id
-       country.textContent = 'Country :' + ' ' +  response.location.country
+       time.textContent = 'Local time :' + ' ' +  response.location.localtime;
+       region.textContent = 'Region :' + ' ' +   response.location.tz_id;
+       country.textContent = 'Country :' + ' ' +  response.location.country;
        if (forecast.includes('cloudy')) {
         image.src = './weather/64x64/day/119.png'
        }else
         if (forecast.includes('Clear')) {
-        image.src = '/weather/64x64/day/113.png' 
+        image.src = './weather/64x64/day/113.png' 
        }else
         if (forecast.includes('rain')) {
         image.src = './weather/64x64/day/263.png'
