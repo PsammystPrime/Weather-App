@@ -16,6 +16,7 @@ function checkWeather(){
     resultPara.textContent = '';
     region.textContent = '';
     image.src = '';
+    temperature.textContent = '';
 
     fetch (`https://api.weatherapi.com/v1/current.json?key=e05dad397b6a4d4e9f0171133233012&q=${input.value}`, {mode: "cors"})
     .then(function(response){
