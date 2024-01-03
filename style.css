@@ -4,3 +4,6 @@ body{
     justify-content: center;
     align-items: center;
 }
+.display{
+    height: 50vh;
+}
