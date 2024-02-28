@@ -9,6 +9,11 @@ const country = document.getElementById('country');
 const image = document.querySelector('img');
 const temperature = document.getElementById('temps');
 
+const humidity = document.querySelector('.humidity');
+const wind = document.querySelector('.wind');
+const latitide = document.querySelector('.lat');
+const longitude = document.querySelector('.long');
+
 submit.addEventListener('click', checkWeather);
 
 function checkWeather(){
@@ -19,7 +24,11 @@ function checkWeather(){
         region.textContent = '';
         image.src = '';
         temperature.textContent = '';
-    
+        
+        humidity.textContent = '';
+        wind.textContent = '';
+        latitide.textContent = '';
+        longitude.textContent = '';
         //Fetch data from the API
         fetch (`https://api.weatherapi.com/v1/current.json?key=e05dad397b6a4d4e9f0171133233012&q=${input.value}`, {mode: "cors"})
         //Receive a promise as a JSON file
@@ -29,6 +38,7 @@ function checkWeather(){
         })
         //Resolve the promise
         .then((response)=>{     
+            console.log(response)
             statusPara.textContent = 'Weather updated!';
             let forecast = response.current.condition.text;
             resultPara.textContent = 'Forecast :' + ' ' +  forecast;
@@ -37,6 +47,11 @@ function checkWeather(){
             country.textContent = 'Country :' + ' ' +  response.location.country;
             temperature.textContent = 'Temperature :' + ' ' + response.current.temp_c + '°C';
             image.src = response.current.condition.icon;
+
+            humidity.textContent = 'Humidity: ' + response.current.humidity;
+            wind.textContent = 'Wind Degree: ' +  response.current.wind_degree;
+            latitide.textContent = 'Latitude: ' + response.location.lat;
+            longitude.textContent = 'Longitude: ' + response.location.lon;
         })
         // an error
         .catch(function(error){
