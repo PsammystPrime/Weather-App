@@ -28,15 +28,14 @@ p{
     color: #fff;
 }
 .display{
-    /* height: 50vh; */
+    min-height: 40vh;
+    min-width: 410px;
     max-width: 500px;
     margin: 0, auto;
-    /* text-align: center; */
    background-color: rgba(255, 255, 255, 0.5);
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-wrap: wrap;
-    /* row-gap: 10px; */
     column-gap: 100px;
     padding: 10px 20px 10px 20px;
 }
