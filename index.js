@@ -22,13 +22,11 @@ function checkWeather(){
     fetch (`https://api.weatherapi.com/v1/current.json?key=e05dad397b6a4d4e9f0171133233012&q=${input.value}`, {mode: "cors"})
     //Receive a promise as a JSON file
     .then((response)=>{
-        console.log(response)
         statusPara.textContent = 'Fetching data...';
         return response.json()
     })
     //Resolve the promise
-    .then((response)=>{
-        console.log(response)       
+    .then((response)=>{     
         statusPara.textContent = 'Weather updated!';
         let forecast = response.current.condition.text;
         resultPara.textContent = 'Forecast :' + ' ' +  forecast;
@@ -41,8 +39,14 @@ function checkWeather(){
     // an error
     .catch(function(error){
         console.log(error)
-        statusPara.textContent = `Failed to update the weather for ${input.value}`
-        region.textContent = 'No matching location found'
+        let err = `"${error}"`
+        if (err.includes('undefined') === true){
+             statusPara.textContent = `Failed to update the weather for ${input.value}`
+             region.textContent = 'No matching location found'
+        }else{
+            statusPara.textContent = `Failed to fetch the weather for ${input.value}`
+            region.textContent = 'Check your Network Connectivity then Retry.'
+        }
     });
 };
 
