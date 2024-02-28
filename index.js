@@ -32,30 +32,31 @@ function checkWeather(){
        region.textContent = 'Region :' + ' ' +   response.location.tz_id;
        country.textContent = 'Country :' + ' ' +  response.location.country;
        temperature.textContent = 'Temperature :' + ' ' + response.current.temp_c + '°C';
-       if (forecast.includes('cloudy')) {
-        image.src = './weather/64x64/day/119.png'
-       }else
-        if (forecast.includes('Clear')) {
-        image.src = './weather/64x64/day/113.png' 
-       }else
-        if (forecast.includes('rain')) {
-        image.src = './weather/64x64/day/263.png'
-       }else
-       if (forecast.includes('Wind')){
-        image.src = './weather/64x64/day/377.png'
-       }else
-       if (forecast.includes('mist')){
-        image.src = './weather/64x64/day/350.png'
-       }else
-       if (forecast.includes('fog')){
-        image.src = './weather/64x64/day/335.png'
-       }else
-       if (forecast.includes('storm')){
-        image.src = './weather/64x64/day/395.png'
-       }else
-       if (forecast.includes('snow')){
-        image.src = './weather/64x64/day/311.png'
-       }
+        image.src = response.current.condition.icon
+    //    if (forecast.includes('cloudy')) {
+    //     image.src = './weather/64x64/day/119.png'
+    //    }else
+    //     if (forecast.includes('Clear')) {
+    //     image.src = './weather/64x64/day/113.png' 
+    //    }else
+    //     if (forecast.includes('rain')) {
+    //     image.src = './weather/64x64/day/263.png'
+    //    }else
+    //    if (forecast.includes('Wind')){
+    //     image.src = './weather/64x64/day/377.png'
+    //    }else
+    //    if (forecast.includes('mist')){
+    //     image.src = './weather/64x64/day/350.png'
+    //    }else
+    //    if (forecast.includes('fog')){
+    //     image.src = './weather/64x64/day/335.png'
+    //    }else
+    //    if (forecast.includes('storm')){
+    //     image.src = './weather/64x64/day/395.png'
+    //    }else
+    //    if (forecast.includes('snow')){
+    //     image.src = './weather/64x64/day/311.png'
+    //    }
        
     })
     .catch(function(error){
