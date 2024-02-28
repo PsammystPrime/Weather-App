@@ -28,7 +28,7 @@ p{
     color: #fff;
 }
 .display{
-    height: 50vh;
+    /* height: 50vh; */
     max-width: 500px;
     margin: 0, auto;
     /* text-align: center; */
@@ -36,7 +36,8 @@ p{
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    /* row-gap: 10px; */
+    column-gap: 100px;
     padding: 10px 20px 10px 20px;
 }
 input{
