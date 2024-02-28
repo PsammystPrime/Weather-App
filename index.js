@@ -18,11 +18,14 @@ function checkWeather(){
     image.src = '';
     temperature.textContent = '';
 
+    //Fetch data from the API
     fetch (`https://api.weatherapi.com/v1/current.json?key=e05dad397b6a4d4e9f0171133233012&q=${input.value}`, {mode: "cors"})
+    //Receive a promise as a JSON file
     .then(function(response){
         statusPara.textContent = 'Fetching data...';
         return response.json()
     })
+    //Resolve the promise
     .then(function(response){
         console.log(response)       
         statusPara.textContent = 'Weather updated!';
@@ -33,8 +36,8 @@ function checkWeather(){
         country.textContent = 'Country :' + ' ' +  response.location.country;
         temperature.textContent = 'Temperature :' + ' ' + response.current.temp_c + '°C';
         image.src = response.current.condition.icon;
-       
     })
+    //Resolve an error
     .catch(function(error){
         console.log(error)
         statusPara.textContent = `Failed to update the weather for ${input.value}`
