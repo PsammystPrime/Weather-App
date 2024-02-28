@@ -40,7 +40,6 @@ function checkWeather(){
         })
         // an error
         .catch(function(error){
-            console.log(error)
             let err = `"${error}"`
             if (err.includes('undefined') === true){
                  statusPara.textContent = `Failed to update the weather for ${input.value}`
