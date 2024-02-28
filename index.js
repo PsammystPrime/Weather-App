@@ -12,7 +12,7 @@ const temperature = document.getElementById('temps');
 submit.addEventListener('click', checkWeather);
 
 function checkWeather(){
-    if (input.value ==! ''){
+    if (input.value !== ''){
         statusPara.textContent = 'Fetching data...';
         country.textContent = '';
         resultPara.textContent = '';
@@ -49,7 +49,9 @@ function checkWeather(){
                 region.textContent = 'Check your Network Connectivity then Retry.'
             }
         });
-    };
-    statusPara.textContent = 'Add a Location'
+    } else{
+        statusPara.textContent = 'Add a Location';
+    }
+    
 };
    
